@@ -1,0 +1,30 @@
+name: "check-ts"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  check-ts:
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        node-version: ["18"]
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: "recursive"
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install and build
+        run: |
+          npm ci
+          npm build
