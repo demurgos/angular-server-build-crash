@@ -2,9 +2,9 @@ name: "check-ts"
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "ng14" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master", "ng14" ]
 
 jobs:
   check-ts:
