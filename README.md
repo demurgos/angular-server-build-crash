@@ -1,6 +1,8 @@
 # Server build crash without output
 
-This repo contains is based on the Angular Universal example, it removes all extra files
+[Angular CLI issue #24612](https://github.com/angular/angular-cli/issues/24612)
+
+This repo content is based on the Angular Universal example, it removes all extra files
 to only expose server rendering.
 
 The file `server.ts` has a syntax error on line 10 which causes a build failure. Angular
