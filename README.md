@@ -37,3 +37,32 @@ ls: cannot access 'dist/': No such file or directory
 Expected behavior: The TypeScript syntax error should be reported in the console.
 
 This is a regression in Angular 15 compared to Angular 14.
+
+The `ng14` branch is configured to use Angular 14.2. Here's th output with Angular 14:
+
+```
+$ npm run build
+
+> angular.io-example@0.0.0 build
+> ng run angular.io-example:server
+
+✔ Server application bundle generation complete.
+
+Initial Chunk Files | Names         | Raw Size
+main.js             | main          |  5.68 MB | 
+
+                    | Initial Total |  5.68 MB
+
+Build at: 2023-01-26T07:36:35.761Z - Hash: 2ce5cd4dbb2aca9e - Time: 6918ms
+
+Error: server.ts:10:39 - error TS1005: 'from' expected.
+
+10 import { AppServerModule } /* from */ './src/main.server';
+                                         ~~~~~~~~~~~~~~~~~~~
+
+
+Error: Optimization error [main.js]: SyntaxError: Unexpected token: punc ({)
+
+$ echo $?
+1
+```
